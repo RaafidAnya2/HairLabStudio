@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="kotak-daftar">
 
-    <div class="nama-salon">✂ Hair Lab Studio</div>
+    <div class="nama-salon">HLS| Hair Lab Studio</div>
     <div class="slogan">Premium Salon Experience</div>
 
     <h2>Buat Akun Baru</h2>

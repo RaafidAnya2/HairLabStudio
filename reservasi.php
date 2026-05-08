@@ -7,23 +7,27 @@ if (!isset($_SESSION['nama_pengguna'])) {
 }
 
 $daftar_layanan = [
-    "Potong Rambut" => 50000,
-    "Coloring"      => 150000,
-    "Creambath"     => 70000,
-    "Keratin"       => 200000,
-    "Rebonding"     => 250000,
+    "Potong Rambut"    => 50000,
+    "Coloring"         => 150000,
+    "Creambath"        => 70000,
+    "Keratin"          => 200000,
+    "Keramas"          => 30000,
+    "Scalp Treatment"  => 100000,
+    "Extension Rambut" => 175000,
+    "Rebonding"        => 250000,
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include 'koneksi.php';
 
-    // Ambil data dari form
     $nama_pelanggan = trim($_POST['nama_pelanggan']);
-    $layanan        = trim($_POST['layanan']);
-    $tanggal        = $_POST['tanggal'];
-    $jam            = $_POST['jam'];
+    
+    $layanan_dipilih = $_POST['layanan'] ?? [];
+    $layanan = implode(', ', $layanan_dipilih); 
 
+    $tanggal = $_POST['tanggal'];
+    $jam     = $_POST['jam'];
 
     $kode_booking = "HL-" . time() . "-" . rand(100, 999);
 
@@ -31,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "INSERT INTO reservasi (nama_pelanggan, layanan, tanggal, jam, kode_booking) VALUES (?, ?, ?, ?, ?)"
     );
     $simpan->bind_param("sssss", $nama_pelanggan, $layanan, $tanggal, $jam, $kode_booking);
+
 
     if ($simpan->execute()) {
 
@@ -61,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <nav>
-    <div class="nama-salon">✂ Hair Lab Studio</div>
+    <div class="nama-salon">HLS| Hair Lab Studio</div>
     <div class="tautan-nav">
         <a href="index.php">Beranda</a>
         <a href="logout.php">Keluar (<?= htmlspecialchars($_SESSION['nama_pengguna']) ?>)</a>
@@ -96,18 +101,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="kelompok-isian">
-                <label for="layanan">Pilih Layanan</label>
-                <select id="layanan" name="layanan" onchange="tampilkanHarga()" required>
-                    <option value="">-- Pilih Layanan --</option>
-                    <?php foreach ($daftar_layanan as $nama_layanan => $harga): ?>
-                        <option
-                            value="<?= $nama_layanan ?>"
-                            data-harga="<?= $harga ?>"
-                        >
-                            <?= $nama_layanan ?> - Rp <?= number_format($harga, 0, ',', '.') ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+    <label>LAYANAN YANG DIINGINKAN *</label>
+    <div class="grid-layanan">
+        <?php foreach ($daftar_layanan as $nama_layanan => $harga): ?>
+            <label class="card-layanan">
+                <input 
+                    type="checkbox" 
+                    name="layanan[]" 
+                    value="<?= $nama_layanan ?>"
+                >
+                <span class="nama-layanan"><?= strtoupper($nama_layanan) ?></span>
+                <span class="harga-layanan">RP <?= number_format($harga, 0, ',', '.') ?></span>
+            </label>
+        <?php endforeach; ?>
+    </div>
+</div>
 
                 <div class="info-harga" id="kotak-harga"></div>
             </div>
@@ -160,7 +168,7 @@ function tampilkanHarga() {
 
     if (harga) {
         var hargaRupiah = new Intl.NumberFormat('id-ID').format(harga);
-        kotakHarga.innerHTML = '💰 Estimasi biaya: <strong>Rp ' + hargaRupiah + '</strong>';
+        kotakHarga.innerHTML = 'Estimasi biaya: <strong>Rp ' + hargaRupiah + '</strong>';
         kotakHarga.style.display = 'block';
     } else {
         kotakHarga.style.display = 'none';

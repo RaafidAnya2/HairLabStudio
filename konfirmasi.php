@@ -36,8 +36,6 @@ $jam_mudah_dibaca = date('H:i', strtotime($data_booking['jam']));
 
 <div class="pembungkus-konfirmasi">
 
-    <div class="ikon-berhasil">✅</div>
-
     <h1>Booking Berhasil!</h1>
     <p class="kalimat-kecil">
         Reservasi Anda telah dikonfirmasi.<br>

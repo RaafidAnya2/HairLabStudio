@@ -1,37 +1,15 @@
-/* ================================================
-   NAMA FILE : style.css
-   KEGUNAAN  : File CSS untuk semua halaman
-   
-   DAFTAR BAGIAN:
-   1. UMUM        - style dasar semua halaman
-   2. BERANDA     - index.php
-   3. LOGIN       - login.php
-   4. DAFTAR AKUN - register.php
-   5. RESERVASI   - reservasi.php
-   6. KONFIRMASI  - konfirmasi.php
-================================================ */
-
-
-/* ================================================
-   1. UMUM
-   Dipakai di semua halaman
-================================================ */
-
-/* Hilangkan jarak bawaan browser */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Pengaturan tampilan dasar seluruh halaman */
 body {
     font-family: 'Georgia', serif;
     background-color: #fdf8f3;
     color: #3d2b1f;
 }
 
-/* Menu navigasi di bagian atas */
 nav {
     display: flex;
     justify-content: space-between;
@@ -44,7 +22,6 @@ nav {
     z-index: 100;
 }
 
-/* Nama salon di pojok kiri navigasi */
 nav .nama-salon {
     font-size: 22px;
     font-weight: bold;
@@ -53,14 +30,12 @@ nav .nama-salon {
     text-transform: uppercase;
 }
 
-/* Daftar menu di kanan navigasi */
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-/* Setiap link menu navigasi */
 nav ul li a {
     text-decoration: none;
     color: #5a3a28;
@@ -69,12 +44,10 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-/* Warna link berubah saat mouse diarahkan */
 nav ul li a:hover {
     color: #c49a6c;
 }
 
-/* Link navigasi versi singkat (reservasi & konfirmasi) */
 nav .tautan-nav a {
     text-decoration: none;
     color: #5a3a28;
@@ -88,18 +61,14 @@ nav .tautan-nav a:hover {
     color: #c49a6c;
 }
 
-/* Bagian bawah halaman */
 footer {
+     width: 100%;
+    background-color: #6b4328;
+    color: white;
     text-align: center;
-    padding: 24px;
-    background-color: #5a3a28;
-    color: #e8d5c4;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-top: 60px;
+    padding: 30px 0;
 }
 
-/* Tombol coklat utama */
 .tombol-utama {
     background-color: #7b4f35;
     color: #fff;
@@ -119,7 +88,6 @@ footer {
     background-color: #5a3a28;
 }
 
-/* Tombol kirim form, lebarnya penuh */
 .tombol-kirim {
     width: 100%;
     background-color: #7b4f35;
@@ -139,7 +107,6 @@ footer {
     background-color: #5a3a28;
 }
 
-/* Kotak pesan error warna merah */
 .pesan-error {
     background-color: #fce4e4;
     border: 1px solid #e8a0a0;
@@ -151,7 +118,6 @@ footer {
     text-align: left;
 }
 
-/* Kotak pesan berhasil warna hijau */
 .pesan-berhasil {
     background-color: #e4f5e4;
     border: 1px solid #90c890;
@@ -163,13 +129,11 @@ footer {
     text-align: left;
 }
 
-/* Satu kelompok isian form: label + kolom input */
 .kelompok-isian {
     margin-bottom: 18px;
     text-align: left;
 }
 
-/* Teks keterangan di atas kolom input */
 .kelompok-isian label {
     display: block;
     font-size: 13px;
@@ -179,7 +143,6 @@ footer {
     margin-bottom: 6px;
 }
 
-/* Kolom input teks dan dropdown pilihan */
 .kelompok-isian input,
 .kelompok-isian select {
     width: 100%;
@@ -194,26 +157,24 @@ footer {
     transition: border-color 0.3s;
 }
 
-/* Garis tepi kolom berubah saat diklik */
 .kelompok-isian input:focus,
 .kelompok-isian select:focus {
     border-color: #7b4f35;
 }
 
 
-/* ================================================
-   2. BERANDA
-   Khusus halaman utama - index.php
-================================================ */
-
-/* Banner besar di bagian paling atas */
 .banner-utama {
     background: linear-gradient(135deg, #f5e6d3 0%, #e8cdb5 100%);
     text-align: center;
     padding: 100px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Judul besar di dalam banner */
 .banner-utama h1 {
     font-size: 52px;
     color: #5a3a28;
@@ -222,7 +183,6 @@ footer {
     margin-bottom: 16px;
 }
 
-/* Kalimat kecil di bawah judul banner */
 .banner-utama p {
     font-size: 18px;
     color: #8a6a55;
@@ -230,30 +190,60 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Bagian tentang kami */
-.tentang-kami {
-    text-align: center;
-    padding: 70px 60px;
+.wrapper-tentang {
     background-color: #fffaf5;
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tentang-kami h2 {
+.wrapper-tentang h2 {
+    text-align: center;
     font-size: 30px;
     color: #7b4f35;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 40px;
+    margin-top: 0;
 }
 
-.tentang-kami p {
-    font-size: 16px;
+.tentang-kami {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.gambar-tentang {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gambar-tentang img {
+    width: 100%;
+    max-width: 500px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.teks-tentang {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.teks-tentang p {
+    text-align: justify;
+    font-size: 17px;
     color: #6b5040;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.9;
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 
-/* Bagian daftar layanan */
 .daftar-layanan {
     padding: 70px 60px;
     background-color: #fdf8f3;
@@ -268,7 +258,6 @@ footer {
     margin-bottom: 40px;
 }
 
-/* Susunan kartu layanan otomatis menyesuaikan lebar layar */
 .susunan-kartu {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -277,28 +266,34 @@ footer {
     margin: 0 auto;
 }
 
-/* Setiap kotak kartu layanan */
 .kartu-layanan {
     background-color: #fff8f0;
     border: 1px solid #e8d5c4;
-    border-radius: 4px;
+    border-radius: 20px;
     padding: 30px 20px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Kartu terangkat saat diarahkan mouse */
 .kartu-layanan:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(123, 79, 53, 0.1);
 }
 
-/* Emoji ikon di dalam kartu */
 .kartu-layanan .ikon {
-    font-size: 34px;
-    margin-bottom: 12px;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
-/* Nama layanan di dalam kartu */
+.kartu-layanan .ikon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .kartu-layanan h3 {
     font-size: 17px;
     color: #5a3a28;
@@ -306,18 +301,24 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Harga layanan di dalam kartu */
 .kartu-layanan .harga {
     font-size: 16px;
     color: #c49a6c;
     font-weight: bold;
 }
 
-/* Bagian ajakan untuk reservasi */
 .ajakan-reservasi {
+     width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #e8d7c3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 70px 20px;
-    background: linear-gradient(135deg, #e8cdb5 0%, #d4b896 100%);
+    box-sizing: border-box;
 }
 
 .ajakan-reservasi h2 {
@@ -335,12 +336,6 @@ footer {
 }
 
 
-/* ================================================
-   3. LOGIN
-   Khusus halaman masuk akun - login.php
-================================================ */
-
-/* Latar belakang halaman login */
 body.halaman-login {
     background-color: #f5e6d3;
     min-height: 100vh;
@@ -349,7 +344,6 @@ body.halaman-login {
     align-items: center;
 }
 
-/* Kotak putih tempat form login */
 .kotak-login {
     background-color: #fff8f0;
     border: 1px solid #e8d5c4;
@@ -361,7 +355,6 @@ body.halaman-login {
     box-shadow: 0 10px 30px rgba(90, 58, 40, 0.1);
 }
 
-/* Nama salon di dalam kotak login */
 .kotak-login .nama-salon {
     font-size: 24px;
     font-weight: bold;
@@ -371,7 +364,6 @@ body.halaman-login {
     margin-bottom: 8px;
 }
 
-/* Slogan kecil di bawah nama salon */
 .kotak-login .slogan {
     font-size: 13px;
     color: #a08060;
@@ -379,7 +371,6 @@ body.halaman-login {
     margin-bottom: 32px;
 }
 
-/* Judul Masuk Akun */
 .kotak-login h2 {
     font-size: 20px;
     color: #5a3a28;
@@ -388,7 +379,6 @@ body.halaman-login {
     margin-bottom: 24px;
 }
 
-/* Teks link ke halaman daftar */
 .tautan-daftar {
     margin-top: 22px;
     font-size: 14px;
@@ -406,12 +396,6 @@ body.halaman-login {
 }
 
 
-/* ================================================
-   4. DAFTAR AKUN
-   Khusus halaman buat akun baru - register.php
-================================================ */
-
-/* Latar belakang halaman daftar */
 body.halaman-daftar {
     background-color: #f5e6d3;
     min-height: 100vh;
@@ -420,7 +404,6 @@ body.halaman-daftar {
     align-items: center;
 }
 
-/* Kotak putih tempat form pendaftaran */
 .kotak-daftar {
     background-color: #fff8f0;
     border: 1px solid #e8d5c4;
@@ -432,7 +415,6 @@ body.halaman-daftar {
     box-shadow: 0 10px 30px rgba(90, 58, 40, 0.1);
 }
 
-/* Nama salon di dalam kotak daftar */
 .kotak-daftar .nama-salon {
     font-size: 24px;
     font-weight: bold;
@@ -442,7 +424,6 @@ body.halaman-daftar {
     margin-bottom: 8px;
 }
 
-/* Slogan kecil */
 .kotak-daftar .slogan {
     font-size: 13px;
     color: #a08060;
@@ -450,7 +431,6 @@ body.halaman-daftar {
     margin-bottom: 32px;
 }
 
-/* Judul Buat Akun Baru */
 .kotak-daftar h2 {
     font-size: 20px;
     color: #5a3a28;
@@ -459,7 +439,6 @@ body.halaman-daftar {
     margin-bottom: 24px;
 }
 
-/* Teks link ke halaman login */
 .tautan-masuk {
     margin-top: 22px;
     font-size: 14px;
@@ -477,12 +456,6 @@ body.halaman-daftar {
 }
 
 
-/* ================================================
-   5. RESERVASI
-   Khusus halaman booking layanan - reservasi.php
-================================================ */
-
-/* Judul di bagian atas halaman reservasi */
 .kepala-halaman {
     background: linear-gradient(135deg, #f5e6d3 0%, #e8cdb5 100%);
     text-align: center;
@@ -503,14 +476,57 @@ body.halaman-daftar {
     letter-spacing: 1px;
 }
 
-/* Pembungkus form agar tampil di tengah */
 .pembungkus-reservasi {
     max-width: 600px;
     margin: 50px auto;
     padding: 0 20px;
 }
 
-/* Kotak putih tempat form reservasi */
+.grid-layanan {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.card-layanan:last-child:nth-child(odd) {
+    grid-column: span 1; 
+}
+
+.card-layanan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 6px;
+    padding: 20px;
+    min-height: 80px; 
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #fff;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.card-layanan input[type="checkbox"] {
+    display: none;
+}
+
+.nama-layanan {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #3b2f2f;
+}
+
+.harga-layanan {
+    font-size: 13px;
+    color: #c8a97e;
+}
+
+.card-layanan:has(input:checked) {
+    background: #fdf0dc;
+    border-color: #c8a97e;
+}
+
 .kotak-form {
     background-color: #fff8f0;
     border: 1px solid #e8d5c4;
@@ -519,33 +535,12 @@ body.halaman-daftar {
     box-shadow: 0 6px 20px rgba(90, 58, 40, 0.08);
 }
 
-/* Dua kolom berdampingan untuk tanggal dan jam */
 .baris-dua-kolom {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
-/* Kotak harga yang muncul saat layanan dipilih */
-.info-harga {
-    background-color: #f5e6d3;
-    border: 1px solid #d4b896;
-    border-radius: 3px;
-    padding: 10px 14px;
-    font-size: 15px;
-    color: #7b4f35;
-    font-weight: bold;
-    margin-top: 8px;
-    display: none;
-}
-
-
-/* ================================================
-   6. KONFIRMASI
-   Khusus halaman bukti booking - konfirmasi.php
-================================================ */
-
-/* Pembungkus seluruh isi halaman konfirmasi */
 .pembungkus-konfirmasi {
     max-width: 560px;
     margin: 60px auto;
@@ -553,13 +548,11 @@ body.halaman-daftar {
     text-align: center;
 }
 
-/* Emoji centang besar di atas */
 .ikon-berhasil {
     font-size: 60px;
     margin-bottom: 16px;
 }
 
-/* Judul Booking Berhasil */
 .pembungkus-konfirmasi h1 {
     font-size: 28px;
     color: #5a3a28;
@@ -568,14 +561,12 @@ body.halaman-daftar {
     margin-bottom: 10px;
 }
 
-/* Kalimat penjelasan di bawah judul */
 .pembungkus-konfirmasi .kalimat-kecil {
     font-size: 15px;
     color: #8a6a55;
     margin-bottom: 36px;
 }
 
-/* Kotak besar bergradasi coklat untuk kode booking */
 .kotak-kode-booking {
     background: linear-gradient(135deg, #7b4f35, #5a3a28);
     color: #fff;
@@ -584,7 +575,6 @@ body.halaman-daftar {
     margin-bottom: 28px;
 }
 
-/* Tulisan kecil di atas kode */
 .kotak-kode-booking .keterangan {
     font-size: 13px;
     letter-spacing: 2px;
@@ -593,14 +583,12 @@ body.halaman-daftar {
     margin-bottom: 8px;
 }
 
-/* Kode booking ditampilkan besar dan tebal */
 .kotak-kode-booking .kode {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: 4px;
 }
 
-/* Kotak putih berisi detail booking */
 .kotak-detail {
     background-color: #fff8f0;
     border: 1px solid #e8d5c4;
@@ -611,7 +599,6 @@ body.halaman-daftar {
     box-shadow: 0 4px 15px rgba(90, 58, 40, 0.08);
 }
 
-/* Setiap baris informasi di kotak detail */
 .baris-detail {
     display: flex;
     justify-content: space-between;
@@ -620,12 +607,10 @@ body.halaman-daftar {
     border-bottom: 1px solid #f0dfd0;
 }
 
-/* Hilangkan garis di baris paling terakhir */
 .baris-detail:last-child {
     border-bottom: none;
 }
 
-/* Teks label di sebelah kiri, contoh: Nama, Layanan */
 .baris-detail .teks-label {
     font-size: 13px;
     color: #a08060;
@@ -633,7 +618,6 @@ body.halaman-daftar {
     text-transform: uppercase;
 }
 
-/* Teks nilai di sebelah kanan, contoh: Budi, Coloring */
 .baris-detail .teks-nilai {
     font-size: 15px;
     color: #3d2b1f;
@@ -641,14 +625,12 @@ body.halaman-daftar {
     text-align: right;
 }
 
-/* Kelompok dua tombol di bagian bawah */
 .kelompok-tombol {
     display: flex;
     gap: 16px;
     justify-content: center;
 }
 
-/* Tombol transparan dengan garis tepi */
 .tombol-sekunder {
     background-color: transparent;
     color: #7b4f35;
@@ -664,7 +646,6 @@ body.halaman-daftar {
     display: inline-block;
 }
 
-/* Tombol sekunder berubah coklat penuh saat diarahkan mouse */
 .tombol-sekunder:hover {
     background-color: #7b4f35;
     color: #fff;
